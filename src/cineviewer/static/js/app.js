@@ -2,7 +2,7 @@
 const appState = {
     originalImage: null,
     imageData: null,
-    falseColorImage: null,  // Store false color version separately
+    falseColorCache: {}, // Cache for different false color types
     showCenter: false,
     centerType: 'small',
     showThirds: false,
@@ -344,13 +344,13 @@ function drawImage() {
     imageCanvas.style.height = canvasHeight + 'px';
 
     // Draw image
-    if (appState.showFalseColor && appState.falseColorImage) {
+    if (appState.showFalseColor && appState.falseColorCache[appState.falseColorType]) {
         const fcImg = new Image();
         fcImg.onload = () => {
             imageCtx.drawImage(fcImg, 0, 0, canvasWidth, canvasHeight);
             drawOverlays();
         };
-        fcImg.src = 'data:image/png;base64,' + appState.falseColorImage;
+        fcImg.src = 'data:image/png;base64,' + appState.falseColorCache[appState.falseColorType];
     } else {
         imageCtx.drawImage(appState.originalImage, 0, 0, canvasWidth, canvasHeight);
         drawOverlays();
@@ -475,6 +475,14 @@ function drawOverlays() {
 async function applyFalseColor() {
     if (!appState.imageData) return;
 
+    // If already in cache, use it
+    if (appState.falseColorCache[appState.falseColorType]) {
+        drawImage();
+        drawLegend();
+        loadingSpinner.style.display = 'none';
+        return;
+    }
+
     console.log('applyFalseColor called, type:', appState.falseColorType); // DEBUG
     try {
         const response = await fetch('/api/false-color', {
@@ -489,7 +497,7 @@ async function applyFalseColor() {
         const data = await response.json();
         console.log('API response success:', data.success); // DEBUG
         if (data.success) {
-            appState.falseColorImage = data.image_data;  // Store in separate property
+            appState.falseColorCache[appState.falseColorType] = data.image_data;  // Store in cache
             console.log('False color image stored, calling drawImage and drawLegend'); // DEBUG
             drawImage();
             drawLegend();
