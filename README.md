@@ -2,6 +2,8 @@
 
 A web-based cinematography and production tool for image analysis, false color, and color palette extraction.
 
+**[Live Demo](https://cineviewer.app)**
+
 ## Features
 
 ### Image Analysis Tools
@@ -227,23 +229,7 @@ serve(app, host='127.0.0.1', port=8080)
 
 ## Version History
 
-See [CHANGELOG.md](docs/CHANGELOG.md) for detailed version history.
-
-**Current Version: 1.1**
-
-### Recent Updates (v1.1)
-- Added 8-color palette extraction with AI-powered color analysis
-- Implemented contrast ratio calculation (Rec. 709 standard)
-- Improved color diversity with saturation-weighted sampling
-- Added brightness-based palette sorting
-- Enhanced UI spacing and layout
-- Click-to-copy hex codes with visual feedback
-
-### Previous Release (v1.0)
-- Disabled vectorscope highlighting feature (kept in codebase)
-- Refined false color modes
-- Improved histogram visualization
-- Enhanced memory management
+For a detailed list of changes, see the [CHANGELOG.md](docs/CHANGELOG.md) file.
 
 ## Contributing
 
