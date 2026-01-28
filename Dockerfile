@@ -15,7 +15,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
-COPY src/cineviewer /app/cineviewer
+COPY src/ /app/
 
 # Create uploads directory
 RUN mkdir -p /app/uploads

@@ -10,8 +10,8 @@ services:
       # Mount uploads directory for persistent storage
       - uploads_data:/app/uploads
       # Optional: Mount static files for development
-      - ./static:/app/static
-      - ./templates:/app/templates
+      - ./src/cineviewer/static:/app/cineviewer/static
+      - ./src/cineviewer/templates:/app/cineviewer/templates
     environment:
       - FLASK_ENV=production
       - PYTHONUNBUFFERED=1
