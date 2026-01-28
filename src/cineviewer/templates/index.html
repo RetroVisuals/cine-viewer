@@ -91,7 +91,7 @@
             <div class="sidebar-bottom">
                 <!-- Feedback Button -->
                 <div class="control-section">
-                    <button id="feedbackBtn" class="btn feedback-btn">Feedback</button>
+                    <button id="feedbackBtn" class="btn feedback-btn">About</button>
                 </div>
 
                 <!-- Image Info -->
@@ -153,22 +153,34 @@
     <div id="feedbackModal" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Feedback & Bug Reports</h3>
+                <h3>Privacy, Feedback, and Bug Reports</h3>
                 <button class="modal-close" id="modalClose">&times;</button>
             </div>
             <div class="modal-body">
-                <p>We are always looking for feedback or any issues to report. Please visit our GitHub repository to:</p>
+                <h4>Feedback &amp; Bug Reports</h4>
+                <p>We are always looking for feedback and issues to report. Please visit our GitHub Issues page to:</p>
                 <ul>
-                    <li>Report bugs or issues</li>
+                    <li>Report bugs or problems</li>
                     <li>Request new features</li>
-                    <li>Share your feedback</li>
-                    <li>Contribute to the project</li>
+                    <li>Share feedback and suggestions</li>
                 </ul>
                 <div class="github-link-container">
                     <a href="https://github.com/RetroVisuals/cine-viewer/issues" target="_blank" rel="noopener noreferrer" class="github-link">
                         Visit GitHub Issues
                     </a>
                 </div>
+
+                <h4 style="margin-top: 22px;">Privacy</h4>
+                <p>
+                    When you open an image, it is uploaded to the Cine Viewer server so it can generate tools like the histogram,
+                    vectorscope, false color, and palette. By design, the app does not send your image(s) to any third-party services.
+                </p>
+                <ul>
+                    <li><strong>Primary risk:</strong> If you use a hosted instance you do not control, the host operator could theoretically access images while they are being processed.</li>
+                    <li><strong>How the app reduces exposure:</strong> Images are processed in-memory and are not saved to disk by default.</li>
+                    <li><strong>Retention:</strong> A temporary in-memory copy may be held for your session and is automatically cleared shortly after inactivity and during periodic cleanup.</li>
+                    <li><strong>Best practice:</strong> For sensitive work, run Cine Viewer locally or on infrastructure you control, and use HTTPS when accessing it remotely.</li>
+                </ul>
             </div>
         </div>
     </div>
