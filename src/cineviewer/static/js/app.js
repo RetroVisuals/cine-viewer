@@ -29,7 +29,39 @@ window.addEventListener('DOMContentLoaded', () => {
             splashScreen.remove();
         }, 2500);
     }, 1000);
+    
+    // Initialize feedback modal
+    initializeFeedbackModal();
 });
+
+// Feedback Modal Functions
+function initializeFeedbackModal() {
+    const feedbackBtn = document.getElementById('feedbackBtn');
+    const feedbackModal = document.getElementById('feedbackModal');
+    const modalClose = document.getElementById('modalClose');
+    
+    feedbackBtn.addEventListener('click', () => {
+        feedbackModal.style.display = 'flex';
+    });
+    
+    modalClose.addEventListener('click', () => {
+        feedbackModal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside of it
+    feedbackModal.addEventListener('click', (e) => {
+        if (e.target === feedbackModal) {
+            feedbackModal.style.display = 'none';
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && feedbackModal.style.display === 'flex') {
+            feedbackModal.style.display = 'none';
+        }
+    });
+}
 
 // Aspect Ratios (width:height)
 const aspectRatios = {

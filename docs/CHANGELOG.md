@@ -5,6 +5,13 @@ All notable changes to Cine Viewer will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.4] - 2026-01-27
+
+### Added
+- **Feedback Modal**: Added a Feedback button in the left sidebar that opens a centered modal with a direct link to the GitHub Issues page for reporting bugs, requesting features, and sharing feedback.
+  - Modal supports close via X button, clicking outside, or Escape.
+  - Button is positioned at the bottom of the sidebar directly above Image Information.
+
 ## [1.4.3] - 2026-01-27
 
 ### Fixed
