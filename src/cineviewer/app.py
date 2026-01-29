@@ -453,7 +453,7 @@ def track_client():
 
 @app.route('/')
 def index():
-    return render_template('index.html', version=__version_display__)
+    return render_template('index.html', version=__version_display__, full_version=__version__)
 
 @app.route('/api/version')
 def get_version():
